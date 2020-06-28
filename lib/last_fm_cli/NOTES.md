@@ -2,6 +2,10 @@ Show a list of top tracks from last.fm chart
 
 ...
 
+display unique artist from last.fm chart
+
+..
+
 display selected song details
 
 ...

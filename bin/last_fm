@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require '../lib/last_fm_cli.rb'
+require_relative '../lib/last_fm_cli.rb'
 
 LastFM::CLI.new.call
