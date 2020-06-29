@@ -28,10 +28,23 @@ class LastFM::CLI
   def menu
     sleep(2)
     input = nil
+    self.current_track = nil
+    self.current_playlist = [] 
     while input != "exit"
       puts "Enter \'tracks\' to display the list of the current top 50 tracks in the music chart."
-      puts "Enter \'artists \' to display the artists that are currently featured in the music chart."
+      puts "    Enter a number 1 to 50 to select a song from the list."
+      puts "    After selecting a number, enter \'add song\' to add the song to the current playlist."
+      puts "    To reset the currently selected song, enter \'tracks\'."
+      puts "    Enter \'playlist\' to display the current list of songs in the playlist."
+      puts "Enter \'artists\' to display the artists that are currently featured in the music chart."
       puts "Enter \'exit\' to quit the program. \n\n"
+
+      if self.current_track != nil
+        puts "The track currently selected is #{self.current_track.name} by #{self.current_track.artist}."
+        sleep(1.5)
+        puts "\n\n"
+      end
+
       input = gets.strip.downcase
       tracks = fetch_tracks
       if input.to_i > 0 && input.to_i <= 50
@@ -48,15 +61,42 @@ class LastFM::CLI
         puts "PLAYCOUNT: #{self.current_track.playcount} times played"
         puts "LISTENERS: #{self.current_track.listeners} listeners"
         puts "\n\n"
-        sleep(1)
+        sleep(1.5)
       elsif input == "tracks"
         display_tracks(tracks)
+        self.current_track = nil
         sleep(1.5)
         puts "\n\n"
       elsif input == "artists"
         artists
         sleep(1.5)
         puts "\n\n"
+      elsif input == "add song"
+        if self.current_track == nil
+          puts "There is no track currently selected."
+        elsif self.current_playlist.include?(self.current_track)
+          "The selected track has already been added to the playlist."
+        else
+          self.current_playlist << self.current_track
+          puts "#{self.current_track.name} by #{self.current_track.artist} was added to the current playlist."
+        end
+        sleep(1.5)
+        puts "\n\n"
+      elsif input == "playlist"
+        puts "Getting current playlist"
+        sleep(0.5)
+        if self.current_playlist.length == 0
+          puts "The current playlist is empty."
+          sleep(1.5)
+          puts "\n\n"
+        else
+          puts "CURRENT PLAYLIST:"
+          self.current_playlist.each.with_index do |track, index|
+            puts "#{index + 1}. #{track.name} | #{track.artist} | #{track.length}"
+          end
+          sleep(1.5)
+          puts "\n\n"
+        end
       elsif input != "exit"
         puts "Couldn't process input. \n\n"
         sleep(1.5)
@@ -70,7 +110,6 @@ class LastFM::CLI
       puts "#{index + 1}. #{track.name} | #{track.artist}"
     end
     puts "\n"
-
   end
 
   def fetch_tracks
