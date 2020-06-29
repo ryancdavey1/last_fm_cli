@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-Run `./bin/last_fm_cli` to initiate the last.fm cli
+Run `./bin/last_fm` to initiate the last.fm cli
 
 Enter `tracks` to display the list of the current top 50 tracks in the music chart.
   - Enter a number 1 to 50 to select a song from the list.
