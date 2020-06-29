@@ -1,8 +1,6 @@
-# LastFmCli
+# LastFM CLI
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/last_fm_cli`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem utilizes the `https://www.last.fm/api/show/chart.getTopTracks` endpoint from last.fm to display the top 50 music tracks in the api. The user can list the songs, display individual song details, and add a selected song to the current playlist.
 
 ## Installation
 
@@ -22,7 +20,16 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Run `./bin/last_fm_cli` to initiate the last.fm cli
+
+Enter `tracks` to display the list of the current top 50 tracks in the music chart.
+  - Enter a number 1 to 50 to select a song from the list.
+  - After selecting a number, enter `add song` to add the song to the current playlist.
+  - To reset the currently selected song, enter `tracks`.
+Enter `playlist` to display the current list of songs in the playlist.
+Enter `artists` to display the artists that are currently featured in the music chart.
+  - Enter `exit` to quit the program.
+
 
 ## Development
 
