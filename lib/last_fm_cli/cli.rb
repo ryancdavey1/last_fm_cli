@@ -6,9 +6,7 @@ require 'nokogiri'
 
 class LastFM::CLI
 
-  attr_accessor :current_playlist
-
-  @@current_track = nil
+  attr_accessor :current_playlist, :current_track
 
   def call
     display_logo
@@ -150,9 +148,5 @@ class LastFM::CLI
     artists.each.with_index do |artist, index|
       puts "#{index + 1}. #{artist}"
     end
-  end
-
-  def self.current_track
-    @@current_track
   end
 end
