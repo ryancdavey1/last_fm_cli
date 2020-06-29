@@ -1,0 +1,31 @@
+PATH
+  remote: .
+  specs:
+    last_fm_cli (0.1.0)
+      json
+      net-http
+      nokogiri
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    json (2.3.0)
+    mini_portile2 (2.4.0)
+    net-http (0.1.0)
+    nokogiri (1.10.9)
+      mini_portile2 (~> 2.4.0)
+    rake (10.5.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 2.0)
+  json
+  last_fm_cli!
+  net-http
+  nokogiri
+  rake (~> 10.0)
+
+BUNDLED WITH
+   2.1.4

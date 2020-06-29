@@ -4,6 +4,5 @@ source "https://rubygems.org"
 gemspec
 
 gem "nokogiri"
-gem "open-uri"
 gem "net-http"
 gem "json"
