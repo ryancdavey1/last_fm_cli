@@ -1,8 +1,5 @@
 # CLI Controller
-require 'open-uri'
-require 'net/http'
-require 'json'
-require 'nokogiri'
+
 
 class LastFM::CLI
 
